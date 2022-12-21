@@ -22,14 +22,7 @@ def evaluate(monkey):
     return vals[monkey]
 
 
-start = 2 ** 64 # start with a massive number
-
-# We can observe that the difference between the two monkeys
-# that make up the monkey "root" gets closer and closer to 0
-# as the monkey "humn" increases e.g.
-# humn val. ... | 298  | 299  | 300  | 301 | 302 | ...
-# diff.     ... | -0.5 | -1.0 | -0.5 | 0.0 | 0.5 | ...
-# A binary search can be used to get the difference as small as possible
+# use binary search to get the difference as small as possible
 
 start = 0
 end = 2 ** 64
@@ -42,7 +35,6 @@ for line in open("input.txt").readlines():
 
 p, _, q = j["root"].split() # two monkeys connected to root
 diff = -1
-f = 0
 
 while diff != 0:
     jobs = deepcopy(j)
