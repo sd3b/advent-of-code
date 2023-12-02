@@ -1,7 +1,7 @@
 digits = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
 total = 0
 
-for line in open("../inputs/day_01"):
+for line in open("input.txt"):
     idx = 0
     value = ""
 

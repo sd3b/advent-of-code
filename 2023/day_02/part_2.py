@@ -2,7 +2,7 @@ import re
 
 total_power = 0
 
-for line in open("../inputs/day_02"):
+for line in open("input.txt"):
     max_cubes = {"red": -1, "green": -1, "blue": -1}
     matches = re.findall("(\d+) (red|green|blue)", line)
 

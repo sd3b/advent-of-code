@@ -1,6 +1,6 @@
 values_total = 0
 
-for line in open("../inputs/day_01"):
+for line in open("input.txt"):
     value = ""
 
     for char in line:

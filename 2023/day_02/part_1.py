@@ -8,7 +8,7 @@ LIMITS = {
 
 total_valid_ids = 0
 
-for current_id, line in enumerate(open("../inputs/day_02"), start = 1):
+for current_id, line in enumerate(open("input.txt"), start = 1):
     id_valid = True
     matches = re.findall("(\d+) (red|green|blue)", line)
 
