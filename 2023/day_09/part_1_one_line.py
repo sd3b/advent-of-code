@@ -1,0 +1,1 @@
+print("Part 1:",sum((g:=lambda s:0if all(n==0 for n in s)else s[-1]+g([s[i+1]-s[i]for i in range(len(s)-1)]))([int(x)for x in l.split()])for l in open("input.txt")))
