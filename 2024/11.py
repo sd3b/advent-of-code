@@ -3,8 +3,6 @@ from math import floor, log10
 
 @cache
 def blink(n, iters):
-    s = str(n)
-
     if iters == 0:
         return 1
     elif n == 0:
