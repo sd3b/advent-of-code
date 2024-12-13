@@ -1,19 +1,17 @@
 import re
-from sympy.solvers import solve
-from sympy import Symbol, Eq
-fro
+import sympy as sym
 
 results = re.findall(r"A: X\+(\d+), Y\+(\d+)\n.*X\+(\d+), Y\+(\d+)\n.*X=(\d+), Y=(\d+)", open("inputs/13.txt").read())
 results = [map(int, vals) for vals in results]
-a = Symbol("a")
-b = Symbol("b")
+a = sym.Symbol("a")
+b = sym.Symbol("b")
 
 ans = 0
 
 for ax, ay, bx, by, x, y in results:
-    result = solve([Eq(ax * a + bx * b, x + 10000000000000), Eq(ay * a + by * b, y + 10000000000000)])
+    result = sym.solvers.solve([sym.Eq(ax * a + bx * b, x + 10000000000000), sym.Eq(ay * a + by * b, y + 10000000000000)])
 
-    if all(n == int(n) for n in result.values()) and a in result.keys():
+    if all(n == int(n) for n in result.values()):
         ans += 3 * result[a] + result[b]
 
 print(ans)
