@@ -1,13 +1,23 @@
 import re
 from math import prod
-from tqdm import tqdm
+from PIL import Image
 
 WIDTH, HEIGHT = 101, 103
 
 data = re.findall("p=(-?\d+),(-?\d+) v=(-?\d+),(-?\d+)", open("inputs/14.txt").read())
 robots = [list(map(int, r)) for r in data]
 
-for tick in tqdm(range(int(10e5))):
+def write_state(count):
+    img = Image.new("1", (WIDTH, HEIGHT))
+
+    for px, py, _, _ in robots:
+        img.putpixel((px, py), 1)
+
+    img.save(f"output/{count:05}.bmp")
+
+for tick in range(HEIGHT * WIDTH):
+    write_state(tick)
+
     for idx, (px, py, vx, vy) in enumerate(robots):
         robots[idx][0] = (px + vx) % WIDTH
         robots[idx][1] = (py + vy) % HEIGHT
