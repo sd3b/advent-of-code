@@ -1,11 +1,8 @@
 from collections import deque
 
-all_corrupt = []
+all_corrupt = [tuple(map(int, l.split(","))) for l in open("inputs/18.txt")]
 bound = 70
 dirs = [(1, 0), (-1, 0), (0, 1), (0, -1)]
-
-for idx, line in enumerate(open("inputs/18.txt")):
-    all_corrupt.append(tuple(map(int, line.split(","))))
 
 def steps(idx):
     corrupt = set(all_corrupt[:idx + 1])
